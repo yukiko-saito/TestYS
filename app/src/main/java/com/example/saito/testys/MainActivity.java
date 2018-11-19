@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Sample01ページへの遷移
+        // Sample02ページへの遷移
         // ボタンの取得とクリックリスナーをつける（他にもタッチリスナー、長押しリスナーがあるよ）
         Button sample02Button = findViewById(R.id.button02);
-        sample01Button.setOnClickListener(new View.OnClickListener() {
+        sample02Button.setOnClickListener(new View.OnClickListener() {
 
             // クリックしたときの動作
             @Override
