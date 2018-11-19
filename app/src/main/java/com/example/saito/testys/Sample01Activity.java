@@ -7,17 +7,23 @@ import android.view.KeyEvent;
  * Created by saito on 2018/11/07.
  */
 
-public class SampleActivity extends AppCompatActivity {
+public class Sample01Activity extends AppCompatActivity {
+
+    // onCreateは必須
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sample);
+
+        // レイアウトファイルのactivity_sample01をviewとしてセットするよ、ってこと。
+        setContentView(R.layout.activity_sample01);
     }
 
     @Override
+    // キー操作
+    // onKeyDownはboolなのでなんらかのbool結果を返す必要がある
     public boolean onKeyDown(int keyCode, KeyEvent event){
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 戻るボタンをタップ
-            this.finish();
+            this.finish();      // このActivityを終了させる
             return true;
         }
         return false;

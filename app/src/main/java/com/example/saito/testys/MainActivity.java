@@ -13,47 +13,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // hogeページへの遷移
-        Button hogeButton = (Button) findViewById(R.id.button1);
-        hogeButton.setOnClickListener(new View.OnClickListener() {
+        // Sample01ページへの遷移
+        // ボタンの取得とクリックリスナーをつける（他にもタッチリスナー、長押しリスナーがあるよ）
+        Button sample01Button = findViewById(R.id.button01);
+        sample01Button.setOnClickListener(new View.OnClickListener() {
+
+            // クリックしたときの動作
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SampleActivity.class);
+                // intentを作る。Activityを新しく始めるときにやる
+                // 第一引数はApplicationかContext
+                Intent intent = new Intent(getApplicationContext(), Sample01Activity.class);
+                // Activity Start
+                 startActivity(intent);
+            }
+        });
+
+        // Sample01ページへの遷移
+        // ボタンの取得とクリックリスナーをつける（他にもタッチリスナー、長押しリスナーがあるよ）
+        Button sample02Button = findViewById(R.id.button02);
+        sample01Button.setOnClickListener(new View.OnClickListener() {
+
+            // クリックしたときの動作
+            @Override
+            public void onClick(View v) {
+                // intentを作る。Activityを新しく始めるときにやる
+                // 第一引数はApplicationかContext
+                Intent intent = new Intent(getApplicationContext(), Sample02Activity.class);
+                // Activity Start
                 startActivity(intent);
             }
         });
 
     }
 
-
-
-    private void Btn1ClickEvent(View v){
-        /*
-        final PrintCount printCount = new PrintCount();
-        for( int i = 0; i < 3; i++){
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    printCount.read();
-                }
-            }).start();
-        }
-        */
-    }
-
-    class PrintCount {
-        private int count;
-        public void read() {
-            synchronized (this) {
-                count++;
-                try {
-                    Thread.sleep(100);
-
-                } catch (InterruptedException e) {
-
-                }
-                System.out.println("read count = " + count);
-            }
-        }
-    }
 }
