@@ -124,6 +124,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Sample08ページへの遷移
+        // ボタンの取得とクリックリスナーをつける（他にもタッチリスナー、長押しリスナーがあるよ）
+        Button sample08Button = findViewById(R.id.button08);
+        sample08Button.setOnClickListener(new View.OnClickListener() {
+
+            // クリックしたときの動作
+            @Override
+            public void onClick(View v) {
+                // intentを作る。Activityを新しく始めるときにやる
+                // 第一引数はApplicationかContext
+                Intent intent = new Intent(getApplicationContext(), Sample08Activity.class);
+                // Activity Start
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 }
