@@ -3,6 +3,7 @@ package com.example.saito.testys;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -71,4 +72,16 @@ public class Sample08Activity extends AppCompatActivity {
         if( text == null ) text = "";
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    // キー操作
+    // onKeyDownはboolなのでなんらかのbool結果を返す必要がある
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK) { // 戻るボタンをタップ
+            this.finish();      // このActivityを終了させる
+            return true;
+        }
+        return false;
+    }
+
 }

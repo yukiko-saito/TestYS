@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -309,4 +310,16 @@ public class Sample06Activity extends AppCompatActivity implements View.OnClickL
             bundle.putString("editText", editText.getText().toString());
         }
     }
+
+    @Override
+    // キー操作
+    // onKeyDownはboolなのでなんらかのbool結果を返す必要がある
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK) { // 戻るボタンをタップ
+            this.finish();      // このActivityを終了させる
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -25,7 +25,8 @@
         <activity android:name=".Sample05Activity" />
         <activity android:name=".Sample06Activity" />
         <activity android:name=".Sample07Activity" />
-        <activity android:name=".Sample08Activity"></activity>
+        <activity android:name=".Sample08Activity" />
+        <activity android:name=".Sample09Activity"></activity>
     </application>
 
 </manifest>
