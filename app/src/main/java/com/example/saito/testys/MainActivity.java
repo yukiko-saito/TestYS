@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Sample05ページへの遷移
+        // Sample06ページへの遷移
         // ボタンの取得とクリックリスナーをつける（他にもタッチリスナー、長押しリスナーがあるよ）
         Button sample06Button = findViewById(R.id.button06);
         sample06Button.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +104,22 @@ public class MainActivity extends AppCompatActivity {
                 // intentを作る。Activityを新しく始めるときにやる
                 // 第一引数はApplicationかContext
                 Intent intent = new Intent(getApplicationContext(), Sample06Activity.class);
+                // Activity Start
+                startActivity(intent);
+            }
+        });
+
+        // Sample07ページへの遷移
+        // ボタンの取得とクリックリスナーをつける（他にもタッチリスナー、長押しリスナーがあるよ）
+        Button sample07Button = findViewById(R.id.button07);
+        sample07Button.setOnClickListener(new View.OnClickListener() {
+
+            // クリックしたときの動作
+            @Override
+            public void onClick(View v) {
+                // intentを作る。Activityを新しく始めるときにやる
+                // 第一引数はApplicationかContext
+                Intent intent = new Intent(getApplicationContext(), Sample07Activity.class);
                 // Activity Start
                 startActivity(intent);
             }
