@@ -26,10 +26,11 @@
         <activity android:name=".Sample06Activity" />
         <activity android:name=".Sample07Activity" />
         <activity android:name=".Sample08Activity" />
-        <activity android:name=".Sample09Activity"></activity>
-        <activity android:name=".Sample10Activity"></activity>
-        <activity android:name=".GridViewActivity"></activity>
-        <activity android:name=".ViewPagerActivity"></activity>
+        <activity android:name=".Sample09Activity" />
+        <activity android:name=".Sample10Activity" />
+        <activity android:name=".Sample11Activity" />
+        <activity android:name=".GridViewActivity" />
+        <activity android:name=".ViewPagerActivity" />
     </application>
 
 </manifest>

@@ -10,5 +10,6 @@
     <string name="btn_test8">TEST8</string>
     <string name="btn_test9">TEST9</string>
     <string name="btn_test10">TEST10</string>
+    <string name="btn_test11">TEST11</string>
     <string name="sample_activity1">Grid Layout Sample</string>
 </resources>
