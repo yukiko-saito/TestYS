@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
+import com.example.saito.testys.view.Sample04View;
+
 /**
  * Created by saito on 2018/11/20.
  */

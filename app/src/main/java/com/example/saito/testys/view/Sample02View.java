@@ -1,4 +1,4 @@
-package com.example.saito.testys;
+package com.example.saito.testys.view;
 
 
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.View;
+
+import com.example.saito.testys.R;
 
 /**
  * Created by saito on 2018/11/19.

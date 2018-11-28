@@ -1,4 +1,4 @@
-package com.example.saito.testys;
+package com.example.saito.testys.view;
 
 import android.content.Context;
 import android.content.res.Resources;

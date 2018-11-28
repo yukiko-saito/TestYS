@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
+import com.example.saito.testys.view.Sample02View;
+
 public class Sample02Activity extends AppCompatActivity {
 
     @Override
