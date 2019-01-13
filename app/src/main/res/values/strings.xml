@@ -12,5 +12,9 @@
     <string name="btn_test10">TEST10</string>
     <string name="btn_test11">TEST11</string>
     <string name="btn_test12">TEST12</string>
+    <string name="btn_test13">TEST13</string>
     <string name="sample_activity1">Grid Layout Sample</string>
+    <string name="sample_activity13">DataBindingSample</string>
+
+    <string name="top_title">観光地一覧</string>
 </resources>
