@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
 
     private final static String TAG_WRITE = "write";
     private final static String TAG_READ = "read";
+    private final static String TAG_CLEAR = "clear";
     private final static String DB_NAME = "testDB.db";
     private final static String DB_TABLE = "testDB";
     private final static int DB_VERSION = 1;
@@ -50,6 +52,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
 
         layout.addView(makeButton("書き込み", TAG_WRITE));
         layout.addView(makeButton("読み込み", TAG_READ));
+        layout.addView(makeButton("データクリア", TAG_CLEAR));
 
         textView = new TextView(this);
         textView.setText("");
@@ -87,6 +90,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
                 String str_com = editText_company.getText().toString();
                 String str_price = editText_price.getText().toString();
                 writeDB(db, str_com, Integer.valueOf(str_price));
+                editText_company.setText("書き込み成功");
 
             } catch (Exception e){
                 editText_company.setText("書き込み失敗");
@@ -94,8 +98,18 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
         } else if (TAG_READ.equals(tag)){
             try {
                 readDB();
+                editText_company.setText("読み込み成功");
+
             } catch (Exception e){
                 editText_company.setText("読み込み失敗");
+            }
+        } else if (TAG_CLEAR.equals(tag)){
+            try {
+                clearAllDB();
+                editText_company.setText("全データ削除成功");
+            } catch (Exception e){
+                editText_company.setText("全データ削除失敗");
+
             }
         }
     }
@@ -120,7 +134,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
             db = helper.getReadableDatabase();
 
         Cursor cursor = db.query(
-          DB_NAME, new String[]{"company", "stockprice"},
+                DB_TABLE, new String[]{"company", "stockprice"},
                 null, null,null, null, null
         );
 
@@ -138,4 +152,34 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
         cursor.close();
         textView.setText(sbuilder.toString());
     }
+
+    private void clearAllDB() throws Exception{
+        if ( helper == null ){
+            return ;
+        }
+
+        if( db == null ) {
+            db = helper.getReadableDatabase();
+        }
+
+        db.delete(DB_TABLE, null, null);
+        textView.setText("");
+    }
+
+    @Override
+    // キー操作
+    // onKeyDownはboolなのでなんらかのbool結果を返す必要がある
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK) { // 戻るボタンをタップ
+
+            if( db != null ) {
+                db.delete(DB_TABLE, null, null);
+            }
+
+            this.finish();      // このActivityを終了させる
+            return true;
+        }
+        return false;
+    }
+
 }
