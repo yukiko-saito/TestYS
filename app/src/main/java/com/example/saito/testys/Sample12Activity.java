@@ -31,7 +31,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
     private EditText editText_company;
     private EditText editText_price;
     private TextView textView;
-    private SQLiteHelper helper;
+    private DBHelper helper;
     private SQLiteDatabase db;
 
     @Override
@@ -115,7 +115,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
             try {
 
                 if( helper == null )
-                    helper = new SQLiteHelper(this);
+                    helper = new DBHelper(this);
 
                 if( db == null )
                     db = helper.getWritableDatabase();
@@ -161,7 +161,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
     private void readDB() throws Exception {
 
         if( helper == null )
-            helper = new SQLiteHelper(this);
+            helper = new DBHelper(this);
 
         if( db == null )
             db = helper.getReadableDatabase();

@@ -17,4 +17,28 @@
     <string name="sample_activity13">DataBindingSample</string>
 
     <string name="top_title">観光地一覧</string>
+    <string name="spot_db_name">SPOT_DB_NAME</string>
+    <string name="spot_db_table">SPOT_DB_TABLE</string>
+    <string name="category_db_name">CATEGORY_DB_NAME</string>
+    <string name="category_db_table">CATEGORY_DB_TABLE</string>
+
+    <string name="SQL_CREATE_SPOT_TABLE_ENTRIES">CREATE ENTRY SPOT_DB_TABLE(
+        _id INTEGER PRIMARY KEY,
+        spot_name STRING,
+        category_id INTEGER,
+        address TEXT,
+        postal_code TEXT,
+        tel TEXT,
+        fax TEXT,
+        comment	TEXT,
+        opening_hours TEXT,
+        closure TEXT,
+        cost TEXT,
+        characteristic TEXT,
+        url TEXT
+        )
+    </string>
+    <string name="SQL_DELETE_SPOT_TABLE_ENTRIES">
+        DROP TABLE IF EXISTS SPOT_DB_TABLE
+    </string>
 </resources>
