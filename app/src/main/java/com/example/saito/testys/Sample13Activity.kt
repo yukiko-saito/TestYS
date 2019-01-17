@@ -28,6 +28,7 @@ class Sample13Activity : AppCompatActivity() {
 
         rv.setHasFixedSize(true)
 
+
     }
 
     private fun createDataset(): List<ItemData> {

@@ -6,12 +6,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.Calendar;
 
 public class Sample12Activity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,7 +31,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
     private EditText editText_company;
     private EditText editText_price;
     private TextView textView;
-    private DBHelper helper;
+    private SQLiteHelper helper;
     private SQLiteDatabase db;
 
     @Override
@@ -59,6 +62,36 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
         textView.setLayoutParams(new LinearLayout.LayoutParams(MP,WC));
         layout.addView(textView);
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2010, 0,28);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DATE);
+        Log.d("TODAY", year + ":" + month + ":" + day);
+
+        Calendar birth = Calendar.getInstance();
+        birth.set(2004,1,28);
+        int birth_year = birth.get(Calendar.YEAR);
+        int birth_month = birth.get(Calendar.MONTH) + 1;
+        int birth_day = birth.get(Calendar.DATE);
+
+        Log.d("BIRTH: ", birth_year + ":" + birth_month + ":" + birth_day);
+        if (birth_day>day) {
+            month--;
+            calendar.add(Calendar.DATE, - day); //先月の最終日.
+            day += calendar.get(Calendar.DATE);
+        }
+        String be_day = String.valueOf(day - birth_day);
+
+        if (birth_month>month) {
+            year--;
+            month +=12;
+        }
+        String be_year = String.valueOf(year-birth_year);
+        String be_month = String.valueOf(month-birth_month);
+
+        Log.d("RESULT: ",be_year +":"+ be_month+":"+be_day);
+
 
 
     }
@@ -82,7 +115,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
             try {
 
                 if( helper == null )
-                    helper = new DBHelper(this);
+                    helper = new SQLiteHelper(this);
 
                 if( db == null )
                     db = helper.getWritableDatabase();
@@ -128,7 +161,7 @@ public class Sample12Activity extends AppCompatActivity implements View.OnClickL
     private void readDB() throws Exception {
 
         if( helper == null )
-            helper = new DBHelper(this);
+            helper = new SQLiteHelper(this);
 
         if( db == null )
             db = helper.getReadableDatabase();
