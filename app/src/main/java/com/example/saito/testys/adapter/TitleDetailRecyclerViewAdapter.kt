@@ -23,7 +23,7 @@ class TitleDetailRecyclerViewAdapter(var list: List<ItemData>) : RecyclerView.Ad
     lateinit var listener: OnItemClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): BindingViewHolder? {
-//        setOnItemClickListener(listener)
+        setOnItemClickListener(listener)
         val layoutInflater = LayoutInflater.from(parent!!.context)
         val binding = TitledetailrowBinding.inflate(layoutInflater, parent, false)
         return BindingViewHolder(binding)
@@ -33,11 +33,9 @@ class TitleDetailRecyclerViewAdapter(var list: List<ItemData>) : RecyclerView.Ad
     override fun onBindViewHolder(holder: BindingViewHolder, position: Int) {
         val data = list[position]
         holder.binding.item = data  // layoutファイルのbinding data "item"にデータをセットする（setItem)
-        /*
-        holder.binding.itemLayout.setOnItemClickListener({
+        holder.binding.itemLayout.setOnClickListener {
             listener.onClick(it, data)
-        })
-        */
+        }
     }
 
     override fun getItemCount(): Int {
@@ -48,7 +46,7 @@ class TitleDetailRecyclerViewAdapter(var list: List<ItemData>) : RecyclerView.Ad
         fun onClick(view: View, data: ItemData)
     }
 
-    private fun setOnItemClickListener(listener: OnItemClickListener) {
+    fun setOnItemClickListener(listener: OnItemClickListener) {
         this.listener = listener
     }
 

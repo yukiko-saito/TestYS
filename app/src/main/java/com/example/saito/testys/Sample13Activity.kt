@@ -1,17 +1,22 @@
 package com.example.saito.testys
 
 import android.content.ContentValues
+import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
 import com.example.saito.testys.adapter.Sample09RecyclerViewAdapter
 import com.example.saito.testys.adapter.TitleDetailRecyclerViewAdapter
 import com.example.saito.testys.model.ItemData
 import com.example.saito.testys.model.RowData
 import java.util.ArrayList
+import android.widget.Toast
+
+
 
 class Sample13Activity : AppCompatActivity() {
 
@@ -25,6 +30,11 @@ class Sample13Activity : AppCompatActivity() {
         val rv = findViewById<RecyclerView>(R.id.TourSpotListRecyclerView)
         val adapter = TitleDetailRecyclerViewAdapter(this.createSpotDBDataset())
         rv.adapter = adapter
+        adapter.setOnItemClickListener(object : TitleDetailRecyclerViewAdapter.OnItemClickListener {
+            override fun onClick(view: View, data: ItemData) {
+                Toast.makeText(applicationContext, data.title, Toast.LENGTH_SHORT).show()
+            }
+        })
 
         val llm = LinearLayoutManager(this)
         rv.layoutManager = llm
@@ -68,23 +78,16 @@ class Sample13Activity : AppCompatActivity() {
                 getString(R.string.spot_db_table), arrayOf("spot_name", "address"), null, null, null, null, null
         )
 
-        val sbuilder = StringBuilder()
-
         cursor.moveToFirst()
         for (i in 0 until cursor.count) {
             val data = ItemData()
             data.title = cursor.getString(0)
             data.detail = cursor.getString(1)
             dataset.add(data)
-            sbuilder.append(cursor.getString(0))
-            sbuilder.append(": ")
-            sbuilder.append(cursor.getInt(1))
-            sbuilder.append("\n")
+            Log.d("DATA: ", DatabaseUtils.dumpCursorToString(cursor))
             cursor.moveToNext()
         }
         cursor.close()
-
-        Log.d("TEST",sbuilder.toString() )
 
         return dataset
     }
