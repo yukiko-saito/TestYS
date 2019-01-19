@@ -22,12 +22,13 @@
     <string name="category_db_name">CATEGORY_DB_NAME</string>
     <string name="category_db_table">CATEGORY_DB_TABLE</string>
 
-    <string name="SQL_CREATE_SPOT_TABLE_ENTRIES">CREATE ENTRY SPOT_DB_TABLE(
+    <string name="SQL_CREATE_SPOT_TABLE_ENTRIES">CREATE TABLE SPOT_DB_TABLE(
         _id INTEGER PRIMARY KEY,
-        spot_name STRING,
+        spot_name TEXT,
         category_id INTEGER,
         address TEXT,
         postal_code TEXT,
+        photo1 TEXT,
         tel TEXT,
         fax TEXT,
         comment	TEXT,

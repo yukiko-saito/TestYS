@@ -32,7 +32,7 @@ class TitleDetailRecyclerViewAdapter(var list: List<ItemData>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: BindingViewHolder, position: Int) {
         val data = list[position]
-        holder.binding.setItem(data)  // layoutファイルのbinding data "item"にデータをセットする（setItem)
+        holder.binding.item = data  // layoutファイルのbinding data "item"にデータをセットする（setItem)
         /*
         holder.binding.itemLayout.setOnItemClickListener({
             listener.onClick(it, data)

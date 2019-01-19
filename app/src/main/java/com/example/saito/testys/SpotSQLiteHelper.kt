@@ -11,6 +11,7 @@ class SpotSQLiteHelper(context: Context) : SQLiteOpenHelper(context, context.get
 
 
     override fun onCreate(db: SQLiteDatabase) {
+
         db.execSQL(SQL_CREATE_ENTRIES)
     }
 
@@ -18,5 +19,4 @@ class SpotSQLiteHelper(context: Context) : SQLiteOpenHelper(context, context.get
         db.execSQL(SQL_DELETE_ENTRIES)
         onCreate(db)
     }
-
 }
