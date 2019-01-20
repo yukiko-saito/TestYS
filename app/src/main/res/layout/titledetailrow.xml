@@ -2,8 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
-            name = "item"
-            type = "com.example.saito.testys.model.ItemData"/>
+            name="item"
+            type="com.example.saito.testys.model.ItemData"/>
     </data>
     <LinearLayout
         android:id="@+id/item_Layout"

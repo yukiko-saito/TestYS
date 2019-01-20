@@ -32,7 +32,8 @@
         <activity android:name=".GridViewActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".Sample12Activity" />
-        <activity android:name=".Sample13Activity"></activity>
+        <activity android:name=".Sample13Activity" />
+        <activity android:name=".SpotDetailsActivity" />
     </application>
 
 </manifest>

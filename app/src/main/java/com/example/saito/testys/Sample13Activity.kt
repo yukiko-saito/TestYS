@@ -1,6 +1,7 @@
 package com.example.saito.testys
 
 import android.content.ContentValues
+import android.content.Intent
 import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
@@ -30,9 +31,18 @@ class Sample13Activity : AppCompatActivity() {
         val rv = findViewById<RecyclerView>(R.id.TourSpotListRecyclerView)
         val adapter = TitleDetailRecyclerViewAdapter(this.createSpotDBDataset())
         rv.adapter = adapter
-        adapter.setOnItemClickListener(object : TitleDetailRecyclerViewAdapter.OnItemClickListener {
+        adapter.setOnItemClickListener(listener = object : TitleDetailRecyclerViewAdapter.OnItemClickListener {
             override fun onClick(view: View, data: ItemData) {
-                Toast.makeText(applicationContext, data.title, Toast.LENGTH_SHORT).show()
+                // intentを作る。Activityを新しく始めるときにやる
+                // 第一引数はApplicationかContext
+                val intent = Intent(
+                        applicationContext,
+                        SpotDetailsActivity::class.java
+                )
+                // Activity Start
+                startActivity(intent)
+
+        //                Toast.makeText(applicationContext, data.title, Toast.LENGTH_SHORT).show()
             }
         })
 
