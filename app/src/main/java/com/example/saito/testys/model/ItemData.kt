@@ -1,8 +1,9 @@
 package com.example.saito.testys.model
+import java.io.Serializable
 
-class ItemData {
+data class ItemData(
 
-    var title: String? = null
+    var title: String? = null,
     var detail: String? = null
 
-}
+) : Serializable

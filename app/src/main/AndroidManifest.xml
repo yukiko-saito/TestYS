@@ -33,7 +33,7 @@
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".Sample12Activity" />
         <activity android:name=".Sample13Activity" />
-        <activity android:name=".SpotDetailsActivity" />
+        <activity android:name=".LocationDetailsActivity" />
     </application>
 
 </manifest>

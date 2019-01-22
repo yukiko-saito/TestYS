@@ -10,16 +10,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
-import com.example.saito.testys.adapter.Sample09RecyclerViewAdapter
 import com.example.saito.testys.adapter.TitleDetailRecyclerViewAdapter
 import com.example.saito.testys.model.ItemData
-import com.example.saito.testys.model.RowData
 import java.util.ArrayList
-import android.widget.Toast
-
 
 
 class Sample13Activity : AppCompatActivity() {
+
+    val selectedLocation: ItemData?= null
+    val selectedCategoryName : String ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +36,9 @@ class Sample13Activity : AppCompatActivity() {
                 // 第一引数はApplicationかContext
                 val intent = Intent(
                         applicationContext,
-                        SpotDetailsActivity::class.java
+                        LocationDetailsActivity::class.java
                 )
+                intent.putExtra("LocationDetailsActivity.LocationData", data)
                 // Activity Start
                 startActivity(intent)
 
@@ -53,7 +53,19 @@ class Sample13Activity : AppCompatActivity() {
 
 
     }
+    /*
+    private fun createCategoryDB(){
+        // DBにデータをとりあえず直接書き込み
+        if (helper == null)
+            helper = CategorySQLiteHelper(this)
 
+        if (db == null)
+            db = helper?.writableDatabase
+
+        writeCategoryDB(db!!, )
+
+    }
+    */
     private fun createSpotDB(){
 
         // DBにデータをとりあえず直接書き込み

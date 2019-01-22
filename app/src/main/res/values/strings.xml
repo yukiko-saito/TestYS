@@ -42,4 +42,19 @@
     <string name="SQL_DELETE_SPOT_TABLE_ENTRIES">
         DROP TABLE IF EXISTS SPOT_DB_TABLE
     </string>
+
+    <string name="SQL_CREATE_CATEGORY_TABLE_ENTRIES">CREATE TABLE CATEGORY_DB_TABLE(
+        _id INTEGER PRIMARY KEY,
+        category_id INTEGER,
+        category_name TEXT
+        )
+    </string>
+    <string name="SQL_DELETE_CATEGORY_TABLE_ENTRIES">
+        DROP TABLE IF EXISTS CATEGORY_DB_TABLE
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

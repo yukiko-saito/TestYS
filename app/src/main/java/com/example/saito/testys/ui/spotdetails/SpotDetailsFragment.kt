@@ -18,7 +18,7 @@ class SpotDetailsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.spot_details_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_location_details, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
