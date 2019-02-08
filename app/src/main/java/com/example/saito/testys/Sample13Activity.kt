@@ -1,16 +1,11 @@
 package com.example.saito.testys
 
 import android.content.ContentValues
-import android.content.Intent
 import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.View
-import com.example.saito.testys.adapter.TitleDetailRecyclerViewAdapter
 import com.example.saito.testys.model.ItemData
 import java.util.ArrayList
 
@@ -27,29 +22,6 @@ class Sample13Activity : AppCompatActivity() {
         // ActionBarのタイトルを変更
         this.supportActionBar?.title = getString(R.string.top_title)
 
-        val rv = findViewById<RecyclerView>(R.id.TourSpotListRecyclerView)
-        val adapter = TitleDetailRecyclerViewAdapter(this.createSpotDBDataset())
-        rv.adapter = adapter
-        adapter.setOnItemClickListener(listener = object : TitleDetailRecyclerViewAdapter.OnItemClickListener {
-            override fun onClick(view: View, data: ItemData) {
-                // intentを作る。Activityを新しく始めるときにやる
-                // 第一引数はApplicationかContext
-                val intent = Intent(
-                        applicationContext,
-                        LocationDetailsActivity::class.java
-                )
-                intent.putExtra("LocationDetailsActivity.LocationData", data)
-                // Activity Start
-                startActivity(intent)
-
-        //                Toast.makeText(applicationContext, data.title, Toast.LENGTH_SHORT).show()
-            }
-        })
-
-        val llm = LinearLayoutManager(this)
-        rv.layoutManager = llm
-
-        rv.setHasFixedSize(true)
 
 
     }

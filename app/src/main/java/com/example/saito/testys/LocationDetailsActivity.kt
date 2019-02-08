@@ -1,12 +1,9 @@
 package com.example.saito.testys
 
-import android.content.ClipData
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.ActionBar
 import com.example.saito.testys.fragment.LocationDetailsFragment
 import com.example.saito.testys.model.ItemData
-import com.example.saito.testys.ui.spotdetails.SpotDetailsFragment
 
 class LocationDetailsActivity : AppCompatActivity() {
 
